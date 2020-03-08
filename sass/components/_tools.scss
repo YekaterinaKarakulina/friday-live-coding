@@ -7,7 +7,7 @@
 }
 
 .tools__title {
-    max-width: 452px;
+    max-width: 462px;
     margin: auto;
     text-align: center;
     margin-bottom: 70px;
@@ -16,8 +16,33 @@
 .tools__button {
     margin-top: 60px;
     text-align: center;
+    @include media-mobile {
+        margin-top: 0;
+    }
 }
 
+//tool
+.tool-container {
+    @include media-tablet {
+        flex-wrap: wrap;
+        >.tool {
+            flex-basis: 43%;
+        }
+    }
+    @include media-mobile {
+        >.tool {
+            flex-basis: 100%;
+            margin-bottom: 47px;
+        }
+    }
+    
+}
+
+.tool {
+    @include media-tablet {
+        text-align: center;
+    }
+}
 
 .tool__icon {
     margin-bottom: 30px;
@@ -26,4 +51,3 @@
 .tool__title {
     margin: 0 0 16px;
 }
-
