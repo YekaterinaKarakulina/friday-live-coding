@@ -8,12 +8,37 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include media-tablet {
+        padding-left: 24px;
+    }
 }
 
-.header__buttons>.button {
-    margin-left: 14px;
+.header__logo-line {
+    display: flex;
+    @include media-mobile {
+        justify-content: center;
+        flex-grow: 1;
+        position: relative;
+    }
 }
 
-.header__buttons>.button:first-child {
-    margin-left: 0;
+.header__hamburger {
+    margin-right: 37px;
+    @include media-mobile {
+        position: absolute;
+        left: 0;
+    }
 }
+
+.header__buttons {
+    >.button {
+        margin-left: 14px;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    @include media-mobile {
+        display: none;
+    }
+}
+

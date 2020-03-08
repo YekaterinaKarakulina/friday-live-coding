@@ -1,12 +1,10 @@
 .button {
     @extend %font-prim;
     padding: 11px 25px 13px;
-    font-weight: 600;
-    font-size: 1.6rem;
-    line-height: 2.2rem;
+    @include font($size: 1.6rem, $height: 2.2rem, $weight: 600);
     border-radius: 4px;
     cursor: pointer;
-    transition: all .3s;
+    @extend %transition;
     &_bordered {
         background-color: $color-light;
         border: 1px solid $color-border;
@@ -32,6 +30,13 @@
     @extend %font-add;
     display: inline-flex;
     align-items: center;
+    @extend %transition;
+    &:hover {
+        color: $color-red;
+        .ico_play {
+            background-image: url("../img/icons/play-hover.svg");
+        }
+    }
 }
 
 .link-button_text {
