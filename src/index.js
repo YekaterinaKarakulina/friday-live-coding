@@ -1,4 +1,5 @@
 import {Article} from './js/Article';
+import {ArticleModal} from './js/ArticleModal';
 import {Modal} from './js/Modal';
 
 const data = [
@@ -43,6 +44,7 @@ window.onload = function()
 
     //Generate Base Modal from Modal Class
     addToolsClickHandler();
+
 
 }
 
@@ -99,6 +101,8 @@ const renderArticlesToDom = () => {
         strategiesWrapper.append(article.generateArticle());
     })
 
+    addStrategyClickHandler();
+
 }
 
 const getStrategiesContainer = () => {
@@ -130,3 +134,22 @@ const renderModalWindow = (content)=> {
     modal.buildModal(content);
 }
 
+const addStrategyClickHandler = ()=> {
+    document.querySelector('.strategy-wrapper').addEventListener('click', (e)=> {
+        if(e.target.closest('.strategy')) {
+            let clickedStrategyId = e.target.closest('.strategy').getAttribute('data-id');
+            let clickedStrategyData = getClickedStrategyData(clickedStrategyId);
+
+            renderArticleModalWindow(clickedStrategyData);
+        }
+    });
+}
+
+const getClickedStrategyData = (id) => {
+    return data.find(article => article.id == id);
+}
+
+const renderArticleModalWindow = (article)=> {
+    let modal = new ArticleModal('article-modal', article);
+    modal.renderModal();
+}
