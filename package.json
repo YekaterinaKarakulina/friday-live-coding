@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/YekaterinaKarakulina/friday-live-coding#readme",
   "dependencies": {
-    "normalize-scss": "^7.0.1"
+    "normalize-scss": "^7.0.1",
+    "webpack": "^4.42.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "webpack-cli": "^3.3.11"
+  }
 }
