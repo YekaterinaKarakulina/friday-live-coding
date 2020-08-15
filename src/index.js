@@ -1,6 +1,6 @@
-import {Article} from './js/Article';
-import {ArticleModal} from './js/ArticleModal';
-import {Modal} from './js/Modal';
+import { Article } from './js/Article';
+import { ArticleModal } from './js/ArticleModal';
+import { Modal } from './js/Modal';
 
 const data = [
     {
@@ -29,12 +29,11 @@ const data = [
     }
 ];
 
-window.onload = function()
-{
+window.onload = function () {
     console.log('hello');
 
     //Render Articles
-    if(data) {
+    if (data) {
         renderArticlesToDom();
     }
 
@@ -44,17 +43,15 @@ window.onload = function()
 
     //Generate Base Modal from Modal Class
     addToolsClickHandler();
-
-
 }
 
-const addTagsClickHandler = ()=> {
-    document.querySelector('.strategies__tags').addEventListener('click', (e)=> {
-        if(e.target.classList.contains('tag')) {
+const addTagsClickHandler = () => {
+    document.querySelector('.strategies__tags').addEventListener('click', (e) => {
+        if (e.target.classList.contains('tag')) {
             let clickedTag = e.target;
             removeSelectedTags();
             selectClickedTag(clickedTag);
-            if(clickedTag.innerText === 'All') {
+            if (clickedTag.innerText === 'All') {
                 showAllStrategies();
             } else {
                 filterStrategyBySelectedTag(clickedTag.innerText);
@@ -63,9 +60,9 @@ const addTagsClickHandler = ()=> {
     });
 }
 
-const removeSelectedTags = ()=> {
+const removeSelectedTags = () => {
     let tags = document.querySelectorAll('.strategies__tags > .tag');
-    tags.forEach( tag => {
+    tags.forEach(tag => {
         tag.classList.remove('tag_selected');
         tag.classList.add('tag_bordered');
     })
@@ -76,19 +73,19 @@ const selectClickedTag = (clickedTag) => {
     clickedTag.classList.remove('tag_bordered');
 }
 
-const showAllStrategies = ()=> {    
+const showAllStrategies = () => {
     let strategies = document.querySelectorAll('.strategy-wrapper .strategy');
     strategies.forEach(strategy => {
         strategy.classList.remove('strategy_hidden');
     });
 }
 
-const filterStrategyBySelectedTag = (selectedTag)=> {
+const filterStrategyBySelectedTag = (selectedTag) => {
     let strategies = document.querySelectorAll('.strategy-wrapper .strategy');
     strategies.forEach(strategy => {
         strategy.classList.add('strategy_hidden');
         strategy.querySelectorAll('.tag').forEach(tag => {
-            if(tag.innerText === selectedTag) {
+            if (tag.innerText === selectedTag) {
                 strategy.classList.remove('strategy_hidden');
             }
         });
@@ -111,7 +108,7 @@ const getStrategiesContainer = () => {
     return strategiesContainer;
 }
 
-const generateArticles = (data)=> {
+const generateArticles = (data) => {
     let articles = [];
     data.forEach(article => {
         articles.push(new Article(article));
@@ -119,7 +116,7 @@ const generateArticles = (data)=> {
     return articles;
 }
 
-const addToolsClickHandler = () => {
+/* const addToolsClickHandler = () => {
     document.querySelector('.tools__button .button').addEventListener('click', ()=> {
         generateToolsModal();
     });
@@ -127,16 +124,16 @@ const addToolsClickHandler = () => {
 
 const generateToolsModal = ()=> {
    renderModalWindow('test content for tools modal');
-}
+} */
 
-const renderModalWindow = (content)=> {
+/* const renderModalWindow = (content)=> {
     let modal = new Modal('tools-modal');
     modal.buildModal(content);
-}
+} */
 
-const addStrategyClickHandler = ()=> {
-    document.querySelector('.strategy-wrapper').addEventListener('click', (e)=> {
-        if(e.target.closest('.strategy')) {
+const addStrategyClickHandler = () => {
+    document.querySelector('.strategy-wrapper').addEventListener('click', (e) => {
+        if (e.target.closest('.strategy')) {
             let clickedStrategyId = e.target.closest('.strategy').getAttribute('data-id');
             let clickedStrategyData = getClickedStrategyData(clickedStrategyId);
 
@@ -149,7 +146,7 @@ const getClickedStrategyData = (id) => {
     return data.find(article => article.id == id);
 }
 
-const renderArticleModalWindow = (article)=> {
+const renderArticleModalWindow = (article) => {
     let modal = new ArticleModal('article-modal', article);
     modal.renderModal();
 }
