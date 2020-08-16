@@ -13,15 +13,26 @@ $image-gap: 32px;
 }
 
 .employee-container {
-    padding-right: $image-gap;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    @include media-tablet {
+        flex-direction: column;
+    }
 }
 
 .employee {
-    display: flex;
     padding: 35px 0;
+    margin-right: 64px;
     position: relative;
-    width: calc(30% - $image-gap);
-
+    width: calc(30% - 32px);
+    @include media-tablet {
+        width: calc(60% - 32px);
+    }
+    @include media-mobile {
+        margin-right: 32px;
+        width: 90%;
+    }
 }
 
 .employee__name {
