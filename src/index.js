@@ -116,20 +116,20 @@ const generateArticles = (data) => {
     return articles;
 }
 
-/* const addToolsClickHandler = () => {
-    document.querySelector('.tools__button .button').addEventListener('click', ()=> {
+const addToolsClickHandler = () => {
+    document.querySelector('.tools__button .button').addEventListener('click', () => {
         generateToolsModal();
     });
 }
 
-const generateToolsModal = ()=> {
-   renderModalWindow('test content for tools modal');
-} */
+const generateToolsModal = () => {
+    renderModalWindow('test content for tools modal');
+}
 
-/* const renderModalWindow = (content)=> {
+const renderModalWindow = (content) => {
     let modal = new Modal('tools-modal');
     modal.buildModal(content);
-} */
+}
 
 const addStrategyClickHandler = () => {
     document.querySelector('.strategy-wrapper').addEventListener('click', (e) => {
